@@ -9,9 +9,10 @@ const displayCategory = (categories) =>{
     const categoryContainer = document.getElementById('category-container');
     // categoryContainer.innerHTML="";
     for(let category of categories){
+        console.log(category);
         const categoryBtn = document.createElement('div')
         categoryBtn.innerHTML=`
-        <button class="btn btn-outline btn-primary rounded-2xl">${category} </button>
+        <button onclick="loadCategoryProduct(\`${category}\`)" class="btn btn-outline btn-primary rounded-2xl">${category} </button>
         
         `
         categoryContainer.append(categoryBtn)
@@ -25,6 +26,16 @@ const loadProduct = ()=>{
     .then(data=>dispayProduct(data))
 }
 
+const loadCategoryProduct = (category)=>{
+    console.log(category);
+    const url = `https://fakestoreapi.com/products/category/${category}`
+    console.log(url);
+
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>dispayProduct(data))
+}
+
 const dispayProduct =(products)=>{
     const productContainer = document.getElementById('product-container')
     productContainer.innerHTML="";
@@ -34,7 +45,7 @@ const dispayProduct =(products)=>{
         productDiv.innerHTML=`
         
         <div class="p-4 space-y-5 shadow-lg rounded-lg lg:h-full ">
-                <div class="bg-gray-200 " ><img  src=${product.image} alt=""></div>
+                <div class="bg-gray-200 " ><img src=${product.image} alt=""></div>
                 <div class="flex justify-between items-center ">
                     <h3 class=" font-medium text-blue-700 bg-blue-200 rounded-xl px-3">${product.category}</h3>
                     <div class="flex items-center">
@@ -57,5 +68,5 @@ const dispayProduct =(products)=>{
         productContainer.append(productDiv)
     })
 }
-loadProduct()
+
 loadCategory()
