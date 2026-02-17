@@ -97,6 +97,21 @@
             <div>
                 <div id="product-container" class="grid grid-cols-1 lg:grid-cols-4 gap-5 "></div>
             </div>
+            <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+<dialog id="product_details" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="details-container">
+        
+    </div>
+    <div class="modal-action flex justify-start ">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn btn-outline btn-primary rounded-2xl ">Not Now</button>
+      </form>
+    </div>
+  </div>
+</dialog>
             
 
         </section>
