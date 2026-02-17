@@ -1,3 +1,10 @@
+const removeActive = ()=>{
+    const activeBtn = document.getElementsByClassName('active')
+    for(let btn of activeBtn){
+        btn.classList.remove('active')
+    }
+}
+
 const loadCategory = () =>{
     const url = 'https://fakestoreapi.com/products/categories';
     fetch(url)
@@ -9,10 +16,10 @@ const displayCategory = (categories) =>{
     const categoryContainer = document.getElementById('category-container');
     // categoryContainer.innerHTML="";
     for(let category of categories){
-        console.log(category);
+        // console.log(category);
         const categoryBtn = document.createElement('div')
         categoryBtn.innerHTML=`
-        <button onclick="loadCategoryProduct(\`${category}\`)" class="btn btn-outline btn-primary rounded-2xl">${category} </button>
+        <button id="${category}" onclick="loadCategoryProduct(\`${category}\`)" class="btn btn-outline btn-primary rounded-2xl">${category} </button>
         
         `
         categoryContainer.append(categoryBtn)
@@ -23,17 +30,26 @@ const loadProduct = ()=>{
     const url ='https://fakestoreapi.com/products'
     fetch(url)
     .then(res =>res.json())
-    .then(data=>dispayProduct(data))
+    .then(data=>{
+        removeActive()
+        document.getElementById('btn-all').classList.add('active')
+        dispayProduct(data)
+    })
 }
 
 const loadCategoryProduct = (category)=>{
-    console.log(category);
+    // console.log(category);
     const url = `https://fakestoreapi.com/products/category/${category}`
     console.log(url);
 
     fetch(url)
     .then(res=>res.json())
-    .then(data=>dispayProduct(data))
+    .then(data=>{
+        removeActive()
+        const cliskBtn =document.getElementById(`${category}`)
+        cliskBtn.classList.add('active')
+        dispayProduct(data)
+    })
 }
 
 const dispayProduct =(products)=>{
@@ -58,7 +74,7 @@ const dispayProduct =(products)=>{
                 <p class="line-clamp-1">${product.description}</p>
                 <h2 class="text-xl font-bold">$${product.price}</h2>
                 <div class="flex justify-between items-center">
-                    <button class="btn btn-active px-5"><i class="fa-regular fa-eye"></i> Details </button>
+                    <button onclick="loadProductDetails('${product.id}')" class="btn btn-active px-5"><i class="fa-regular fa-eye"></i> Details </button>
                     <button class="btn btn-active btn-primary px-6"><i class="fa-solid fa-cart-shopping"></i> Add</button>
                 </div>
             </div>
