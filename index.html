@@ -13,13 +13,13 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- style -->
-     <style>
-        .active{
+    <style>
+        .active {
             color: white !important;
             background-color: #422ad5;
         }
-     </style>
-    
+    </style>
+
 </head>
 
 <body>
@@ -97,7 +97,8 @@
 
                 <div id="category-container" class="flex flex-wrap gap-5 justify-center">
                     <div>
-                        <button id="btn-all" onclick="loadProduct()" class="btn btn-outline btn-primary rounded-2xl ">All </button>
+                        <button id="btn-all" onclick="loadProduct()"
+                            class="btn btn-outline btn-primary rounded-2xl ">All </button>
                     </div>
                 </div>
             </div>
@@ -108,21 +109,21 @@
                 <div id="product-container" class="grid grid-cols-1 lg:grid-cols-4 gap-5 "></div>
             </div>
             <!-- Open the modal using ID.showModal() method -->
-<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
-<dialog id="product_details" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
-    <div id="details-container">
-        
-    </div>
-    <div class="modal-action flex justify-start ">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn btn-outline btn-primary rounded-2xl ">Not Now</button>
-      </form>
-    </div>
-  </div>
-</dialog>
-            
+            <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+            <dialog id="product_details" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    <div id="details-container">
+
+                    </div>
+                    <div class="modal-action flex justify-start ">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn btn-outline btn-primary rounded-2xl ">Not Now</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+
 
         </section>
 
