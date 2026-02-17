@@ -32,8 +32,8 @@ const displayTrending=(product)=>{
         const card = document.createElement('div')
         card.innerHTML=`
         
-        <div class="p-4 space-y-5 shadow-lg rounded-lg lg:h-full ">
-                <div class="bg-gray-200 " ><img src=${product.image} alt=""></div>
+        <div class="p-4 space-y-5 shadow-lg rounded-lg flex flex-col h-full ">
+                <div class="bg-gray-200 h-48 flex justify-center items-center " ><img src=${product.image} alt="" class="object-contain h-full w-full"></div>
                 <div class="flex justify-between items-center ">
                     <h3 class=" font-medium text-blue-700 bg-blue-200 rounded-xl px-3">${product.category}</h3>
                     <div class="flex items-center">
@@ -100,14 +100,14 @@ const displayProductDetails = (product) => {
   </figure>
   <div class="card-body space-y-5">
     <h2 class="card-title">${product.title}</h2>
-    <p>${product.description}</p>
+    <p class="text-justify">${product.description}</p>
     <div class="flex items-center">
     <i class="fa-solid fa-star text-yellow-500"></i>
                         <h2>${product.rating.rate}</h2>
                         </div>
                         <h2 class="text-xl font-bold">$${product.price}</h2>
     <div class="flex justify-between items-center">
-                    <button onclick="loadProductDetails('${product.id}')" class="btn btn-active px-5"><i class="fa-regular fa-eye"></i> Details </button>
+                    <button onclick="loadProductDetails('${product.id}')" class="btn btn-active px-5"> Buy Now </button>
                     <button class="btn btn-active btn-primary px-6"><i class="fa-solid fa-cart-shopping"></i> Add</button>
                 </div>
   </div>
@@ -123,8 +123,8 @@ const dispayProduct = (products) => {
         const productDiv = document.createElement('div')
         productDiv.innerHTML = `
         
-        <div class="p-4 space-y-5 shadow-lg rounded-lg lg:h-full ">
-                <div class="bg-gray-200 " ><img src=${product.image} alt=""></div>
+        <div class="p-4 space-y-5 shadow-lg rounded-lg flex flex-col h-full ">
+                <div class="bg-gray-200 h-48 flex justify-center items-center" ><img src=${product.image} alt="" class="object-contain h-full w-full"></div>
                 <div class="flex justify-between items-center ">
                     <h3 class=" font-medium text-blue-700 bg-blue-200 rounded-xl px-3">${product.category}</h3>
                     <div class="flex items-center">
